@@ -1,2 +1,1 @@
-# Lowcode
-Low-code simplified JavaScript
+## Limited subset of JavaScript for low-code with Metarhia technology stack
