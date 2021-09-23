@@ -1,6 +1,6 @@
 'use strict';
 
-const { fetch } = require('./fetch.js');
+const { fetch } = require('metautil');
 
 const MAX_PURCHASE = 2000;
 

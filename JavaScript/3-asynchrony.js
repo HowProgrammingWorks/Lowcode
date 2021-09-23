@@ -1,6 +1,6 @@
 'use strict';
 
-const { fetch } = require('./fetch.js');
+const { fetch } = require('metautil');
 
 const API_EXCHANGE = {
   host: 'openexchangerates.org',
