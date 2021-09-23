@@ -1,0 +1,10 @@
+{
+  "name": "lowcode-exaample",
+  "version": "1.0.0",
+  "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "metautil": "^3.5.15"
+  }
+}
