@@ -10,7 +10,7 @@ const total = (prices) => {
 
 const goodsPrices = [1500, 25, 100, 10];
 
-const amount = 0;
+const amount = 100;
 console.log({ amount }); // выводит 100
 {
   const amount = total(goodsPrices);
