@@ -9,7 +9,7 @@ const calculateTotal = (prices) => {
   let amount = 0; // переменная для суммы
   // Имя Array - это UpperCamelCase или PascalCase
   if (!Array.isArray(prices)) throw 'Array expected';
-  for (const price of prices) { // цицл по массиву
+  for (const price of prices) { // цикл по массиву
     amount += price; // суммируем цены товаров
   }
   return amount; // возврат значения из функции
