@@ -74,7 +74,7 @@ const main = async () => {
     console.log(purchase); // вывод структуры в консоль
     const bill = calculateTotal(purchase); // подсчет чека
     console.log(bill);
-    validateExpenses(bill.expenses); // проверка чекуа
+    validateExpenses(bill.expenses); // проверка чека
     const rate = await getRate('UAH'); // получение курса гривны
     const uah = bill.total * rate; // перевод в гривны
     console.log(uah);
