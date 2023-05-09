@@ -63,9 +63,14 @@ const API_EXCHANGE = {
 const getRate = async (currency) => {
   const { host, path, key } = API_EXCHANGE;
   const url = `https://${host}/${path}${key}`;
-  const data = await fetch(url);
-  const rate = data.rates[currency];
-  return rate;
+  const response = await fetch(url);
+  if (response.ok) { // ok is HTTP-status 200-299
+  	const rate = await response.json();
+    return rate.rates[currency];
+  } else {
+  	console.log("ERROR in HTTP response, status is: "+response.status);
+  	return null;
+  }
 };
 
 const main = async () => {
