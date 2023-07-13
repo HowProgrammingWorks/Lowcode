@@ -3,10 +3,6 @@
 // Наша задача 20 коротких видео по 10-15 минут научиться читать и
 // писать подобный простой код, сейчас попробуем просто прочитать его
 
-// Импорт внешней библиотеки
-// мы научимся устанавливать их чуть позже
-const { fetch } = require('metautil');
-
 // Константа, глобальная для всего файла
 const MAX_PURCHASE = 2000;
 
@@ -63,7 +59,8 @@ const API_EXCHANGE = {
 const getRate = async (currency) => {
   const { host, path, key } = API_EXCHANGE;
   const url = `https://${host}/${path}${key}`;
-  const data = await fetch(url);
+  const res = await fetch(url);
+  const data = await res.json();
   const rate = data.rates[currency];
   return rate;
 };

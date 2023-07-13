@@ -4,7 +4,7 @@
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "metautil": "^3.5.15"
+  "engines": {
+    "node": "18 || 19 || 20"
   }
 }
