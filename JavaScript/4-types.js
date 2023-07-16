@@ -1,16 +1,15 @@
 'use strict';
 
-const values = { // объект
-  name: 'Mouse', // строка
-  price: 25, // число
-  stock: false, // логическое значение
-  avg: (a, b) => (a + b) / 2n, // функция
+const values = {
+  name: 'Mouse',
+  price: 25,
+  stock: false,
+  avg: (a, b) => (a + b) / 2n,
   reference: null,
   primitive: undefined,
-  numbers: [NaN, Infinity], // массив (тоже объект)
+  numbers: [NaN, Infinity],
 };
 
-// Перебираем ключи объект и выводим типы значений
 for (const key in values) {
   const value = values[key];
   const type = typeof value;

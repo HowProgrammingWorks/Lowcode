@@ -1,18 +1,14 @@
 'use strict';
 
-// Константа верхнего уровня видимости
-const MAX_PURCHASE = 2000; /* UPPER_SNAKE_CASE */
+const MAX_PURCHASE = 2000;
 
-// Функция нахождения суммы элементов массива
-// Имя calculateTotal - это lowerCamelCase или camelCase
 const calculateTotal = (prices) => {
-  let amount = 0; // переменная для суммы
-  // Имя Array - это UpperCamelCase или PascalCase
+  let amount = 0;
   if (!Array.isArray(prices)) throw 'Array expected';
-  for (const price of prices) { // цикл по массиву
-    amount += price; // суммируем цены товаров
+  for (const price of prices) {
+    amount += price;
   }
-  return amount; // возврат значения из функции
+  return amount;
 };
 
 module.exports = { MAX_PURCHASE, calculateTotal };

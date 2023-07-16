@@ -1,40 +1,34 @@
 'use strict';
 
-// Наша задача 20 коротких видео по 10-15 минут научиться читать и
-// писать подобный простой код, сейчас попробуем просто прочитать его
-
-// Константа, глобальная для всего файла
 const MAX_PURCHASE = 2000;
 
-// Функция принимает массив goods и возвращает сумму
 const calculateSubtotal = (goods) => {
-  let amount = 0; // переменная
-  for (const item of goods) { // цикл для итерации по массиву
-    if (item.price < 0) throw 'Negative price'; // исключение
-    amount += item.price; // накапливаем сумму
+  let amount = 0;
+  for (const item of goods) {
+    if (item.price < 0) throw 'Negative price';
+    amount += item.price;
   }
-  return amount; // возвращаем сумму
+  return amount;
 };
 
 const calculateTotal = (order) => {
-  const expenses = new Map(); // создание хештаблицы
+  const expenses = new Map();
   let total = 0;
-  for (const groupName in order) { // перебор ключей объекта
-    const goods = order[groupName]; // чтение поля объекта
-    const amount = calculateSubtotal(goods); // вызов функции
+  for (const groupName in order) {
+    const goods = order[groupName];
+    const amount = calculateSubtotal(goods);
     total += amount;
-    expenses.set(groupName, amount); // добавление в хештаблицу
+    expenses.set(groupName, amount);
   }
-  return { total, expenses }; // возвращаем объект с двумя полями
+  return { total, expenses };
 };
 
 const validateExpenses = (items) => {
-  for (const [groupName, total] of items) { // цикл по хештаблице
+  for (const [groupName, total] of items) {
     if (total > MAX_PURCHASE) throw `${groupName} total is above the limit`;
   }
 };
 
-// Структура данных: объект, значения его ключей - массивы объектов
 const purchase = {
   Electronics: [
     { name: 'Laptop',  price: 1500 },
@@ -48,14 +42,12 @@ const purchase = {
   ],
 };
 
-// Данные для получения курсов валют
 const API_EXCHANGE = {
   host: 'openexchangerates.org',
   path: '/api/latest.json?app_id=',
   key: '1f43ea96b1e343fe94333dd2b97a109d',
 };
 
-// Асинхронная функция для получения курса валюты ко коду валюты
 const getRate = async (currency) => {
   const { host, path, key } = API_EXCHANGE;
   const url = `https://${host}/${path}${key}`;
@@ -66,18 +58,17 @@ const getRate = async (currency) => {
 };
 
 const main = async () => {
-  // Блок для обработки исключений
   try {
-    console.log(purchase); // вывод структуры в консоль
-    const bill = calculateTotal(purchase); // подсчет чека
+    console.log(purchase);
+    const bill = calculateTotal(purchase);
     console.log(bill);
-    validateExpenses(bill.expenses); // проверка чека
-    const rate = await getRate('UAH'); // получение курса гривны
-    const uah = bill.total * rate; // перевод в гривны
+    validateExpenses(bill.expenses);
+    const rate = await getRate('UAH');
+    const uah = bill.total * rate;
     console.log(uah);
   } catch (err) {
-    console.error(err); // вывод трассировки исключения
+    console.error(err);
   }
 };
 
-main(); // Точка входа в программу
+main();
